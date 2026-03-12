@@ -1,0 +1,50 @@
+{
+  "id": "ccc",
+  "name": "CCC Bridge",
+  "description": "Bridge to Claude Code Chat sessions via SSH + Unix socket.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "sshHost": {
+        "type": "string",
+        "description": "SSH target, e.g. user@host"
+      },
+      "sshPort": {
+        "type": "number",
+        "description": "SSH port (default 22)"
+      },
+      "sshIdentityFile": {
+        "type": "string",
+        "description": "Path to SSH private key"
+      },
+      "socketPath": {
+        "type": "string",
+        "description": "Path to CCC Unix socket on remote (default ~/.ccc.sock)"
+      },
+      "defaultFrom": {
+        "type": "string",
+        "description": "Default sender name for ask/send (default openclaw)"
+      },
+      "askTimeoutMs": {
+        "type": "number",
+        "description": "Timeout for ccc_ask in ms (default 60000)"
+      },
+      "sessionAllowlist": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Allowlist of session names. Empty array = all sessions allowed."
+      },
+      "webhook": {
+        "type": "object",
+        "description": "Webhook server for receiving push events from CCC",
+        "properties": {
+          "enabled": { "type": "boolean", "description": "Enable webhook receiver (default false)" },
+          "port": { "type": "number", "description": "HTTP port (default 18790)" },
+          "bind": { "type": "string", "description": "Bind address: 'lan' (0.0.0.0), 'localhost' (127.0.0.1), or raw IP (default localhost)" },
+          "token": { "type": "string", "description": "Bearer token for authentication" }
+        }
+      }
+    }
+  }
+}

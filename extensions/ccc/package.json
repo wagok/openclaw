@@ -1,0 +1,15 @@
+{
+  "name": "@openclaw/ccc",
+  "version": "2026.2.16",
+  "private": true,
+  "description": "OpenClaw CCC bridge plugin — access Claude Code Chat sessions via SSH",
+  "type": "module",
+  "devDependencies": {
+    "openclaw": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}
